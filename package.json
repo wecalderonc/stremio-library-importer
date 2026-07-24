@@ -1,0 +1,17 @@
+{
+  "name": "stremio-library-importer",
+  "version": "1.0.0",
+  "description": "Transfer a Stremio library from one account to another via the Stremio API",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "transfer": "node src/transfer.js",
+    "dry-run": "node src/transfer.js --dry-run"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
+}
