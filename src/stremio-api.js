@@ -99,6 +99,39 @@ export async function datastorePut(authKey, changes) {
 }
 
 /**
+ * Installed addons for the authenticated user (same collection Stremio syncs).
+ * @param {string} authKey
+ * @returns {Promise<object[]>}
+ */
+export async function addonCollectionGet(authKey) {
+  let result;
+  try {
+    result = await request(
+      'addonCollectionGet',
+      { type: 'AddonCollectionGet', update: true },
+      authKey
+    );
+  } catch {
+    result = await request('addonCollectionGet', { update: true }, authKey);
+  }
+
+  if (Array.isArray(result)) return result;
+  if (Array.isArray(result?.addons)) return result.addons;
+  return [];
+}
+
+/**
+ * @param {string} authKey
+ */
+export async function logout(authKey) {
+  try {
+    await request('logout', { type: 'Logout' }, authKey);
+  } catch {
+    // Session may already be invalid; ignore.
+  }
+}
+
+/**
  * Mask an auth key for safe logging.
  * @param {string} authKey
  */

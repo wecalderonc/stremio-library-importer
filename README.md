@@ -26,6 +26,21 @@ TARGET_EMAIL=new@example.com
 TARGET_PASSWORD=...
 ```
 
+## Browse a library (local web app)
+
+View saved movies, series, and episodes, then fetch torrent/magnet links from **that account’s already-installed stream addons**:
+
+```bash
+npm start
+```
+
+Open [http://127.0.0.1:3456](http://127.0.0.1:3456), sign in with the Stremio email/password, and use **Find torrents** / **Torrents** on a title or episode.
+
+- The app binds to localhost by default (`HOST` / `PORT` can override)
+- Auth keys stay in memory on the server and are never printed
+- To stop it without Terminal: use **Stop server** in the page, or click the Mac icon and choose **Quit server**
+- If no torrents appear, the account likely has no stream addon that returns magnets/`infoHash` — install one in Stremio and sign in again
+
 ## Usage
 
 Preview what would be transferred (no writes):

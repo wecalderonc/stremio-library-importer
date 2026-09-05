@@ -1,10 +1,12 @@
 {
   "name": "stremio-library-importer",
   "version": "1.0.0",
-  "description": "Transfer a Stremio library from one account to another via the Stremio API",
+  "description": "Transfer a Stremio library from one account to another, or browse it in a local web UI",
   "private": true,
   "type": "module",
   "scripts": {
+    "start": "node src/web/server.js",
+    "web": "node src/web/server.js",
     "transfer": "node src/transfer.js",
     "dry-run": "node src/transfer.js --dry-run"
   },
